@@ -1,0 +1,30 @@
+# wordcloud
+Easy to make and learn. Make your own Word Cloud!
+# Before you start open up CMD and type in each of the following:
+# pip install image
+# pip install wordcloud
+# pip install pytagcloud
+#pip install pillow
+# then type this into a text editor and run in a python shell
+
+from os import path
+from wordcloud import WordCloud
+from collections import Counter
+
+f=open(d,"YOURFILE.txt,"r")
+words=f.read()
+stopwords=(["YOUR STOP WORDS, WORDS LIKE 'AND, THEN, IT, THROUGH'"]) 
+wordsset=words.split(" ")
+wordsset=set(wordsset)
+stopwordsset=set(stopwords)
+finalset=wordsset.symmetric_difference(stopwordsset)
+z=" ".join(map(str,finalset))
+z=z.lower()
+freqs=Counter(z.split(" "))
+wordcloud = WordCloud().generate(z)
+
+
+image = wordcloud.to_image()
+image.show()
+
+#RUN!!
