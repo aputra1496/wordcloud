@@ -20,8 +20,7 @@ stopwordsset=set(stopwords)
 finalset=wordsset.symmetric_difference(stopwordsset)
 z=" ".join(map(str,finalset))
 z=z.lower()
-freqs=Counter(z.split(" "))
-wordcloud = WordCloud().generate(z)
+wordcloud = WordCloud(height=1000, width=500, stopwords=stopwords).generate(z)
 
 
 image = wordcloud.to_image()
